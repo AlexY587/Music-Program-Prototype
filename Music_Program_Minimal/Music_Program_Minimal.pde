@@ -21,6 +21,7 @@ void draw() {
   if (song1.isLooping() && song1.loopCount() != -1) println("There are", song1.loopCount(), "loops left.");
   if (song1.isLooping() && song1.loopCount() == -1) println("Looping infinitly");
   if (song1.isPlaying() && !song1.isLooping()) println("Play Once");
+  println("song position", song1.position(), "song length", song1.length());
 }//end draw
 //
 void mousePressed() {
@@ -51,6 +52,8 @@ void keyPressed() {
       song1.mute();
     }
   }//End mute button
+  if (key == 'f' || key == 'F') song1.skip(1000);//skip forward 1 second
+  if () ;
   //int loopNum1 = 2;//local variable plays once loops twice
   //if (key=='l' || key=='L') song1.loop(songPlay);
 }//end keypressed
