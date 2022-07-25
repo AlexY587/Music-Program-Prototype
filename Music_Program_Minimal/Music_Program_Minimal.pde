@@ -32,16 +32,16 @@ void keyPressed() {
   //Alternate play button , as a finite loop() && infinite loop()
   //only press a number for this code below
   println(key);
-  if ( key=='1' || key=='9') {//loop function
+  if ( key=='1') {//loop function
     //note "9" is assumed to be massive ... simulates infinity
     if ( key == '1') println("looping once");
-    if ( key == '9') println("looping 9 times");
     String keystr = String.valueOf(key);
     println("#number of repeats is ", keystr);
     int loopnum = int(keystr);
     song1.loop(loopnum);
   }//End loop functions
-  
+ if (key=='i' || key=='I') song1.loop(-1);//infinite loop, no paramater or -1 
+ if (key >= '2') println("i do not loop that much, press i for infinite loop");
   
   
   //int loopNum1 = 2;//local variable plays once loops twice
