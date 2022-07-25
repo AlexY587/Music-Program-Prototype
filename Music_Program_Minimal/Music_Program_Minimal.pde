@@ -29,7 +29,7 @@ void mousePressed() {
 //
 void keyPressed() {
   //first play button
-  if (key=='y' || key=='Y') song1.play();
+  //if (key=='y' || key=='Y') song1.play();
   //
   //Alternate play button , as a finite loop() && infinite loop()
   //only press a number for this code below
@@ -55,14 +55,25 @@ void keyPressed() {
   if (key == 'f' || key == 'F') song1.skip(1000);//skip forward 1 second
   if (key == 'r' || key == 'R') song1.skip(-1000);//go backwards 1 second
   //
- if (key == 's' || key == 'S') {
-  if (song1.isPlaying()) {
+  if (key == 's' || key == 'S') {
+    if (song1.isPlaying()) {
       song1.pause();
       song1.rewind();
-  } else {
-    song1.rewind();
-  }
-}
+    } else {//song is not playing
+      song1.rewind();
+    }
+  }//end stop button
+  //
+  if (key == 'p' || key == 'P') {//pausse button
+    if (song1.isPlaying()) {
+      song1.pause();
+    } else if (song1.position() >= song1.length() - song1.length() * 1/5) {
+      song1.rewind();
+      song1.rewind();
+    } else {
+      song1.play();
+    }
+  }//end pause button
   //int loopNum1 = 2;//local variable plays once loops twice
   //if (key=='l' || key=='L') song1.loop(songPlay);
 }//end keypressed
