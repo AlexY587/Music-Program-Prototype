@@ -54,6 +54,15 @@ void keyPressed() {
   }//End mute button
   if (key == 'f' || key == 'F') song1.skip(1000);//skip forward 1 second
   if (key == 'r' || key == 'R') song1.skip(-1000);//go backwards 1 second
+  //
+ if (key == 's' || key == 'S') {
+  if (song1.isPlaying()) {
+      song1.pause();
+      song1.rewind();
+  } else {
+    song1.rewind();
+  }
+}
   //int loopNum1 = 2;//local variable plays once loops twice
   //if (key=='l' || key=='L') song1.loop(songPlay);
 }//end keypressed
