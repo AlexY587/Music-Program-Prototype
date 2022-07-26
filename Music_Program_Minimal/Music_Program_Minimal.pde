@@ -8,6 +8,8 @@ import ddf.minim.ugens.*;
 //global variables
 Minim minim;//creates object to access all functions
 AudioPlayer song1;//creates a playlist
+AudioMetaData songMetaData1;
+//
 color black=#000000, purple=#2C08FF, reset=255;
 float titleX, titleY, titleWidth, titleHeight;
 PFont titlefont;
