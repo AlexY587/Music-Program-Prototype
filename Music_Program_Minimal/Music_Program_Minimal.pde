@@ -11,12 +11,14 @@ AudioPlayer song1;//creates a playlist
 color black=#000000, purple=#2C08FF, reset=255;
 float titleX, titleY, titleWidth, titleHeight;
 PFont titlefont;
+
 //
 void setup() {
   size(800, 500);//landscape
   //be careful to include display oreination checker and display 
   minim = new Minim(this);//load from data directory, loadfile should also load from project folder, like loadImage
   song1 = minim.loadFile("Glass - Anno Domini Beats.mp3");//able to pass absolute path, file name and extnsion, and URL
+  songMetaData1 = song1.getMetaData();
   //song1.play();//paramater is milli seconds from the start of audio file to start playing
   // song1.loop(songPlay);//paramater is number of repeats
   //
@@ -40,7 +42,7 @@ void draw() {
   fill(purple);
   textAlign(CENTER, CENTER);
   textFont(titlefont, 30);
-  text(metaData,titleX, titleY, titleWidth, titleHeight);
+  text(songMetaData1.title(),titleX, titleY, titleWidth, titleHeight);
   fill(reset);
 }//end draw
 //
