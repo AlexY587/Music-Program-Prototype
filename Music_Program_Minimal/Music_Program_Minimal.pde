@@ -8,20 +8,40 @@ import ddf.minim.ugens.*;
 //global variables
 Minim minim;//creates object to access all functions
 AudioPlayer song1;//creates a playlist
+color black=#000000, purple=#2C08FF, reset=255;
+float titleX, titleY, titleWidth, titleHeight;
+PFont titlefont;
 //
 void setup() {
-  size(800, 500);
+  size(800, 500);//landscape
+  //be careful to include display oreination checker and display 
   minim = new Minim(this);//load from data directory, loadfile should also load from project folder, like loadImage
   song1 = minim.loadFile("Glass - Anno Domini Beats.mp3");//able to pass absolute path, file name and extnsion, and URL
   //song1.play();//paramater is milli seconds from the start of audio file to start playing
   // song1.loop(songPlay);//paramater is number of repeats
+  //
+  //population
+  titleX = width/4;
+  titleY = height*0;
+  titleWidth = width*1/2;
+  titleHeight = height*1/10;
+  //
+  titlefont = createFont("Times New Roman", 55);
 }//end setup
 //
 void draw() {
   if (song1.isLooping() && song1.loopCount() != -1) println("There are", song1.loopCount(), "loops left.");
   if (song1.isLooping() && song1.loopCount() == -1) println("Looping infinitly");
   if (song1.isPlaying() && !song1.isLooping()) println("Play Once");
-  println("song position", song1.position(), "song length", song1.length());
+  println("song position", song1.position(), "song length", song1.length());//ammount of time left is a calculatoin
+  //
+  background (black);
+  rect(titleX, titleY, titleWidth, titleHeight);
+  fill(purple);
+  textAlign(CENTER, CENTER);
+  textFont(titlefont, 30);
+  text(Text,titleX, titleY, titleWidth, titleHeight);
+  fill(reset);
 }//end draw
 //
 void mousePressed() {
