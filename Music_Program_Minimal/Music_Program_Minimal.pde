@@ -40,7 +40,7 @@ void draw() {
   fill(purple);
   textAlign(CENTER, CENTER);
   textFont(titlefont, 30);
-  text(Text,titleX, titleY, titleWidth, titleHeight);
+  text(metaData,titleX, titleY, titleWidth, titleHeight);
   fill(reset);
 }//end draw
 //
